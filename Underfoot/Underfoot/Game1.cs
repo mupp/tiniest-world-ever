@@ -28,6 +28,7 @@ namespace Underfoot
         Color SplatColor = Color.Red;
 
         GameMap Map;
+        Player player;
 
         TinyHuman[] tinyHumans;
 
@@ -59,7 +60,7 @@ namespace Underfoot
             maxy = 24;
 
             Map = new GameMap(this, 300, 200);
-
+            player = new Player(this);
             Foot = new foot(this);
 
             tinyHumans = new TinyHuman[100];
@@ -68,8 +69,8 @@ namespace Underfoot
             for (c = 0; c < 100; c++)
                 tinyHumans[c] = new TinyHuman(this);
 
-            
 
+            Components.Add(player);
             //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
         }

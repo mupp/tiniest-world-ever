@@ -5,3 +5,13 @@ C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoo
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.exe
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.pdb
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\blood1.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\blood2.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\ground.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\mupp.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\zorf.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\foot.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\cat.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\leftF.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\rightF.xnb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\shadow.xnb

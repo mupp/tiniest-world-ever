@@ -8,7 +8,97 @@
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2012-04-21T11:53:17.25+02:00</Time>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>blood1.png</Source>
+      <Name>blood1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\blood1.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>blood2.png</Source>
+      <Name>blood2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\blood2.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>ground.png</Source>
+      <Name>ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\ground.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mupp.png</Source>
+      <Name>mupp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\mupp.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>zorf.png</Source>
+      <Name>zorf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\zorf.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>foot.png</Source>
+      <Name>foot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\foot.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>cat.png</Source>
+      <Name>cat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\cat.xnb</Output>
+      <Time>2012-04-21T16:10:33.125+02:00</Time>
+    </Item>
+    <Item>
+      <Source>leftF.png</Source>
+      <Name>leftF</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\leftF.xnb</Output>
+      <Time>2012-04-21T14:29:53.75+02:00</Time>
+    </Item>
+    <Item>
+      <Source>rightF.png</Source>
+      <Name>rightF</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\rightF.xnb</Output>
+      <Time>2012-04-21T14:29:38.296875+02:00</Time>
+    </Item>
+    <Item>
+      <Source>shadow.png</Source>
+      <Name>shadow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\shadow.xnb</Output>
+      <Time>2012-04-21T15:30:58.34375+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
