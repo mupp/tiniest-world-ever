@@ -36,8 +36,11 @@ namespace Underfoot
         private Texture2D blood1;
         private Texture2D blood2;
         private Texture2D ground;
+        private Texture2D foot;
 
         public Random rnd;
+
+        private foot Foot;
 
         public int blockSize
         {
@@ -45,13 +48,19 @@ namespace Underfoot
             set;
         }
 
+        public int maxx, maxy;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             rnd = new Random();
+            maxx = 39;
+            maxy = 24;
 
             Map = new GameMap(this, 300, 200);
+
+            Foot = new foot(this);
 
             tinyHumans = new TinyHuman[100];
 
@@ -95,6 +104,7 @@ namespace Underfoot
             mupp = Content.Load<Texture2D>("mupp");
             blood1 = Content.Load<Texture2D>("blood1");
             blood2 = Content.Load<Texture2D>("blood2");
+            foot = Content.Load<Texture2D>("foot");
         }
 
         /// <summary>
@@ -113,11 +123,39 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            bool up, right, left, down;
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Up))
+                up = true;
+            else
+                up = false;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Right))
+                right = true;
+            else
+                right = false;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Down))
+                down = true;
+            else
+                down = false;
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Left))
+                left = true;
+            else
+                left = false;
+
+            Foot.Update2(gameTime, up, down, left, right);
+
+            int c;
+            for (c = 0; c < 100; c++)
+                tinyHumans[c].Update2(gameTime, Foot.pos);
 
             // TODO: Add your update logic here
 
@@ -143,12 +181,14 @@ namespace Underfoot
 
             for (c = 0; c < 100; c++ )
                 if (tinyHumans[c].type == 0) 
-                    spriteBatch.Draw(zorf, new Rectangle((int)tinyHumans[c].pos.X * blockSize,
-                    (int)tinyHumans[c].pos.Y * blockSize, blockSize, blockSize), Color.White);
+                    spriteBatch.Draw(zorf, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
+                    (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
                 else
-                    spriteBatch.Draw(mupp, new Rectangle((int)tinyHumans[c].pos.X * blockSize,
-(int)tinyHumans[c].pos.Y * blockSize, blockSize, blockSize), Color.White);
+                    spriteBatch.Draw(mupp, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
+(int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
 
+            spriteBatch.Draw(foot, new Rectangle((int)Foot.pos.X * blockSize,
+(int)Foot.pos.Y * blockSize, blockSize, blockSize), Color.White);
 
             spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(blockSize, blockSize), Color.White);
             spriteBatch.End();
