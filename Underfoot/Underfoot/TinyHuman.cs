@@ -26,6 +26,7 @@ namespace Underfoot
         private float speed;
 
         public int type;
+        public bool dead;
 
         Game1 game;
 
@@ -41,6 +42,8 @@ namespace Underfoot
             speed = 0.2f;
             angle = 0.0f;
             type = game.rnd.Next(2);
+
+            dead = false;
         }
 
         /// <summary>
@@ -64,9 +67,15 @@ namespace Underfoot
         {
             // TODO: Add your update code here
 
+            if (dead)
+                return;
+
             float dx = pos.X - foot.X;
             float dy = pos.Y - foot.Y;
             float dist = (float)Math.Sqrt((double)(dx * dx + dy * dy));
+
+            if (Math.Abs(dx) < 1 && Math.Abs(dy) < 1)
+                dead = true;
 
             //angle = (float)Math.Atan((double)dy / (double)dx);
 

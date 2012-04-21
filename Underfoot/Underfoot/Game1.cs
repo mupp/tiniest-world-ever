@@ -180,12 +180,21 @@ namespace Underfoot
                     spriteBatch.Draw(ground, new Rectangle(x * blockSize, y * blockSize, blockSize, blockSize), Color.White);
 
             for (c = 0; c < 100; c++ )
-                if (tinyHumans[c].type == 0) 
-                    spriteBatch.Draw(zorf, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
+                {
+                    Texture2D texture;
+                    if (tinyHumans[c].type == 0) 
+                        texture = zorf;
+                    else
+                        texture = mupp;
+
+                    spriteBatch.Draw(texture, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
                     (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
-                else
-                    spriteBatch.Draw(mupp, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
+
+                    if (tinyHumans[c].dead)
+                        spriteBatch.Draw(blood1, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
 (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
+
+                }
 
             spriteBatch.Draw(foot, new Rectangle((int)Foot.pos.X * blockSize,
 (int)Foot.pos.Y * blockSize, blockSize, blockSize), Color.White);
