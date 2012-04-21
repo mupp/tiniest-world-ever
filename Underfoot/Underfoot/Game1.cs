@@ -30,7 +30,7 @@ namespace Underfoot
         GameMap Map;
         Player player;
 
-        TinyHuman[] tinyHumans;
+        public TinyHuman[] tinyHumans;
         House[] Houses;
 
         private Texture2D zorf;
