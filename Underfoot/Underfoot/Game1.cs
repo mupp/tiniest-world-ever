@@ -31,6 +31,7 @@ namespace Underfoot
         Player player;
 
         TinyHuman[] tinyHumans;
+        House[] Houses;
 
         private Texture2D zorf;
         private Texture2D mupp;
@@ -38,6 +39,16 @@ namespace Underfoot
         private Texture2D blood2;
         private Texture2D ground;
         private Texture2D foot;
+
+        private Texture2D cat;
+        private Texture2D girl1;
+        private Texture2D girl2;
+        private Texture2D fatbob;
+        private Texture2D soldier;
+        private Texture2D homer;
+
+        private Texture2D mormorshus;
+        private Texture2D mormorshus2;
 
         public Random rnd;
 
@@ -64,11 +75,14 @@ namespace Underfoot
             Foot = new foot(this);
 
             tinyHumans = new TinyHuman[100];
+            Houses = new House[5];
 
             int c;
             for (c = 0; c < 100; c++)
                 tinyHumans[c] = new TinyHuman(this);
 
+            for (c = 0; c < 5; c++)
+                Houses[c] = new House(this);
 
             Components.Add(player);
             //graphics.IsFullScreen = true;
@@ -103,9 +117,20 @@ namespace Underfoot
             ground = Content.Load<Texture2D>("ground");
             zorf = Content.Load<Texture2D>("zorf");
             mupp = Content.Load<Texture2D>("mupp");
+            cat = Content.Load<Texture2D>("cat");
+            girl1 = Content.Load<Texture2D>("girl1");
+            girl2 = Content.Load<Texture2D>("girl2");
+            soldier = Content.Load<Texture2D>("soldier");
+            homer = Content.Load<Texture2D>("homer");
+            fatbob = Content.Load<Texture2D>("fatbob");
+
+
             blood1 = Content.Load<Texture2D>("blood1");
             blood2 = Content.Load<Texture2D>("blood2");
             foot = Content.Load<Texture2D>("foot");
+
+            mormorshus= Content.Load<Texture2D>("mormorshus");
+            mormorshus2 = Content.Load<Texture2D>("mormorshus2");
         }
 
         /// <summary>
@@ -158,6 +183,9 @@ namespace Underfoot
             for (c = 0; c < 100; c++)
                 tinyHumans[c].Update2(gameTime, Foot.pos);
 
+            for (c = 0; c < 5; c++)
+                Houses[c].Update2(gameTime, Foot.pos);
+
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -183,8 +211,23 @@ namespace Underfoot
             for (c = 0; c < 100; c++ )
                 {
                     Texture2D texture;
-                    if (tinyHumans[c].type == 0) 
+
+                    if (tinyHumans[c].type == TinyHumanType.Zorf)
                         texture = zorf;
+                    else if (tinyHumans[c].type == TinyHumanType.Mupp)
+                        texture = mupp;
+                    else if (tinyHumans[c].type == TinyHumanType.Girl1)
+                        texture = girl1;
+                    else if (tinyHumans[c].type == TinyHumanType.Girl2)
+                        texture = girl2;
+                    else if (tinyHumans[c].type == TinyHumanType.Soldier)
+                        texture = soldier;
+                    else if (tinyHumans[c].type == TinyHumanType.FatBob)
+                        texture = fatbob;
+                    else if (tinyHumans[c].type == TinyHumanType.Homer)
+                        texture = homer;
+                    else if (tinyHumans[c].type == TinyHumanType.Cat)
+                        texture = cat;
                     else
                         texture = mupp;
 
@@ -196,6 +239,20 @@ namespace Underfoot
 (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
 
                 }
+
+            for (c = 0; c < 5; c++)
+            {
+                Texture2D texture;
+
+                if (Houses[c].destroyed)
+                    texture = mormorshus2;
+                else
+                    texture = mormorshus;
+
+                spriteBatch.Draw(texture, new Rectangle((int)(Houses[c].pos.X * blockSize),
+                     (int)(Houses[c].pos.Y * blockSize), blockSize*2, blockSize*2), Color.White);
+            }
+
 
             spriteBatch.Draw(foot, new Rectangle((int)Foot.pos.X * blockSize,
 (int)Foot.pos.Y * blockSize, blockSize, blockSize), Color.White);

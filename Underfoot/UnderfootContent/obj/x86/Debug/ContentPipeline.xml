@@ -100,6 +100,69 @@
       <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\shadow.xnb</Output>
       <Time>2012-04-21T16:21:54.5179676+02:00</Time>
     </Item>
+    <Item>
+      <Source>fatbob.png</Source>
+      <Name>fatbob</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\fatbob.xnb</Output>
+      <Time>2012-04-21T17:11:22.2007094+02:00</Time>
+    </Item>
+    <Item>
+      <Source>girl1.png</Source>
+      <Name>girl1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\girl1.xnb</Output>
+      <Time>2012-04-21T16:09:27.7552552+02:00</Time>
+    </Item>
+    <Item>
+      <Source>girl2.png</Source>
+      <Name>girl2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\girl2.xnb</Output>
+      <Time>2012-04-21T16:10:17.5541036+02:00</Time>
+    </Item>
+    <Item>
+      <Source>homer.png</Source>
+      <Name>homer</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\homer.xnb</Output>
+      <Time>2012-04-21T16:14:30.4885706+02:00</Time>
+    </Item>
+    <Item>
+      <Source>soldier.png</Source>
+      <Name>soldier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\soldier.xnb</Output>
+      <Time>2012-04-21T17:11:34.7544274+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mormorshus.png</Source>
+      <Name>mormorshus</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\mormorshus.xnb</Output>
+      <Time>2012-04-21T17:28:32.7056509+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mormorshus2.png</Source>
+      <Name>mormorshus2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\mormorshus2.xnb</Output>
+      <Time>2012-04-21T17:29:56.1594242+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

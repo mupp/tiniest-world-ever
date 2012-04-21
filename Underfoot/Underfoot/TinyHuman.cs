@@ -12,6 +12,19 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Underfoot
 {
+    public enum TinyHumanType
+    {
+        Zorf = 0,
+        Mupp = 1,
+        Girl1 = 2,
+        Girl2 = 3,
+        Soldier = 4,
+        Cat     = 5,
+        Homer   = 6,
+        FatBob  = 7
+    }
+    
+    
     /// <summary>
     /// This is a game component that implements IUpdateable.
     /// </summary>
@@ -25,7 +38,7 @@ namespace Underfoot
 
         private float speed;
 
-        public int type;
+        public TinyHumanType type;
         public bool dead;
 
         Game1 game;
@@ -41,7 +54,7 @@ namespace Underfoot
             dir = new Vector2(0, 0);
             speed = 0.2f;
             angle = 0.0f;
-            type = game.rnd.Next(2);
+            type = (TinyHumanType)game.rnd.Next(7);
 
             dead = false;
         }
@@ -83,15 +96,28 @@ namespace Underfoot
             //pos.X += speed * (float)Math.Cos(angle);
             //pos.Y += speed * (float)Math.Sin(angle);
 
-            if (dist < 10 && dx < 10 && dx >= 0)
-                pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (dist < 10 && dy < 10 && dy >= 0)
-                pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (dist < 10 && dx > -10 && dx <= 0)
-                pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (dist < 10 && dy > -10 && dy <= 0)
-                pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
+            if (type == TinyHumanType.Soldier)
+            {
+                if (dx >= 0)
+                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dy >= 0)
+                    pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dx <= 0)
+                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dy <= 0)
+                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
+            else
+            {
+                if (dist < 10 && dx < 10 && dx >= 0)
+                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dist < 10 && dy < 10 && dy >= 0)
+                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dist < 10 && dx > -10 && dx <= 0)
+                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dist < 10 && dy > -10 && dy <= 0)
+                    pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            }
             if (pos.X > game.maxx)
                 pos.X = game.maxx;
             if (pos.Y > game.maxy)
