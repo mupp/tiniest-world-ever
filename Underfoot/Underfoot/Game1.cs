@@ -49,10 +49,13 @@ namespace Underfoot
 
         private Texture2D mormorshus;
         private Texture2D mormorshus2;
+        private Texture2D flowers1;
+        private Texture2D flowers2;
 
         public Random rnd;
 
         private foot Foot;
+        private Levels levels;
 
         public int blockSize
         {
@@ -61,6 +64,11 @@ namespace Underfoot
         }
 
         public int maxx, maxy;
+
+        public int MAXHOUSE = 20;
+        public int MAXHUMAN = 100;
+        public int MAXX = 40;
+        public int MAXY = 24;
 
         public Game1()
         {
@@ -73,20 +81,30 @@ namespace Underfoot
             Map = new GameMap(this, 300, 200);
             player = new Player(this);
             Foot = new foot(this);
+            levels = new Levels(this);
 
-            tinyHumans = new TinyHuman[100];
-            Houses = new House[5];
+            tinyHumans = new TinyHuman[MAXHUMAN];
+            Houses = new House[MAXHOUSE];
 
             int c;
-            for (c = 0; c < 100; c++)
+            for (c = 0; c < MAXHUMAN; c++)
+            {
                 tinyHumans[c] = new TinyHuman(this);
+                tinyHumans[c].active = false;
+            }
 
-            for (c = 0; c < 5; c++)
+            for (c = 0; c < MAXHOUSE; c++)
+            {
                 Houses[c] = new House(this);
+                Houses[c].active = false;
+            }
 
             Components.Add(player);
             //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
+
+            levels.UpdateLevel(1, tinyHumans, Houses, Map);
+            
         }
 
         /// <summary>
@@ -131,6 +149,8 @@ namespace Underfoot
 
             mormorshus= Content.Load<Texture2D>("mormorshus");
             mormorshus2 = Content.Load<Texture2D>("mormorshus2");
+            flowers1 = Content.Load<Texture2D>("flowers1");
+            flowers2 = Content.Load<Texture2D>("flowers2");
         }
 
         /// <summary>
@@ -204,12 +224,14 @@ namespace Underfoot
 
             spriteBatch.Begin();
 
-            for (x = 0; x < 40; x++)
-                for (y = 0; y < 24; y++ )
+            for (x = 0; x < MAXX; x++)
+                for (y = 0; y < MAXY; y++ )
                     spriteBatch.Draw(ground, new Rectangle(x * blockSize, y * blockSize, blockSize, blockSize), Color.White);
 
             for (c = 0; c < 100; c++ )
                 {
+                    if (!tinyHumans[c].active)
+                        continue;
                     Texture2D texture;
 
                     if (tinyHumans[c].type == TinyHumanType.Zorf)
@@ -242,13 +264,26 @@ namespace Underfoot
 
             for (c = 0; c < 5; c++)
             {
+                if (!Houses[c].active)
+                    continue;
+
                 Texture2D texture;
 
-                if (Houses[c].destroyed)
-                    texture = mormorshus2;
+                if (Houses[c].type == HouseType.Mormorshus)
+                {
+                    if (Houses[c].destroyed)
+                        texture = mormorshus2;
+                    else
+                        texture = mormorshus;
+                }
+                
                 else
-                    texture = mormorshus;
-
+                {
+                    if (Houses[c].destroyed)
+                        texture = flowers2;
+                    else
+                        texture = flowers1;
+                }
                 spriteBatch.Draw(texture, new Rectangle((int)(Houses[c].pos.X * blockSize),
                      (int)(Houses[c].pos.Y * blockSize), blockSize*2, blockSize*2), Color.White);
             }

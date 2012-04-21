@@ -41,6 +41,8 @@ namespace Underfoot
         public TinyHumanType type;
         public bool dead;
 
+        public bool active;
+
         Game1 game;
 
         public TinyHuman(Game1 game1)
@@ -80,7 +82,7 @@ namespace Underfoot
         {
             // TODO: Add your update code here
 
-            if (dead)
+            if (dead || !active)
                 return;
 
             float dx = pos.X - foot.X;

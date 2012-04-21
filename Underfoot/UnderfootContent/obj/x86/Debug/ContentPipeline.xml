@@ -163,6 +163,24 @@
       <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\mormorshus2.xnb</Output>
       <Time>2012-04-21T17:29:56.1594242+02:00</Time>
     </Item>
+    <Item>
+      <Source>flowers1.png</Source>
+      <Name>flowers1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\flowers1.xnb</Output>
+      <Time>2012-04-21T18:52:24.3924469+02:00</Time>
+    </Item>
+    <Item>
+      <Source>flowers2.png</Source>
+      <Name>flowers2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\flowers2.xnb</Output>
+      <Time>2012-04-21T18:52:07.8114985+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

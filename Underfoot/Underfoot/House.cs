@@ -15,7 +15,8 @@ namespace Underfoot
 
     public enum HouseType
     {
-        Mormorshus = 0
+        Mormorshus = 0,
+        Blommor = 1
 
     }
 
@@ -29,6 +30,8 @@ namespace Underfoot
         public HouseType type;
         public bool destroyed;
 
+        public bool active;
+
         public House(Game1 game)
             : base(game)
         {
@@ -37,7 +40,7 @@ namespace Underfoot
             type = HouseType.Mormorshus;
             destroyed = false;
 
-            pos = new Vector2(game.rnd.Next(40), game.rnd.Next(28));
+            pos = new Vector2(game.rnd.Next(game.MAXX), game.rnd.Next(game.MAXY));
         }
 
         /// <summary>
