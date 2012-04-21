@@ -75,7 +75,7 @@ namespace Underfoot
         {
             // TODO: Add your initialization logic here
 
-            blockSize = 10;
+            blockSize = 20;
 
             base.Initialize();
         }
@@ -137,8 +137,8 @@ namespace Underfoot
 
             spriteBatch.Begin();
 
-            for (x = 0; x < 80; x++)
-                for (y = 0; y < 48; y++ )
+            for (x = 0; x < 40; x++)
+                for (y = 0; y < 24; y++ )
                     spriteBatch.Draw(ground, new Rectangle(x * blockSize, y * blockSize, blockSize, blockSize), Color.White);
 
             for (c = 0; c < 100; c++ )

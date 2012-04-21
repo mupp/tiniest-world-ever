@@ -33,7 +33,7 @@ namespace Underfoot
 
             
 
-            pos = new Vector2(game.rnd.Next(80), game.rnd.Next(48));
+            pos = new Vector2(game.rnd.Next(40), game.rnd.Next(28));
             dir = new Vector2(0, 0);
             speed = 1.0f;
             type = game.rnd.Next(2);
