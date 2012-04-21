@@ -1,1 +1,2 @@
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\UnderfootContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jani\Desktop\LD23\Underfoot\UnderfootContent\obj\x86\Debug\ResolveAssemblyReference.cache

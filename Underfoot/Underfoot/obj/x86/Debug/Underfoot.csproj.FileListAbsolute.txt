@@ -5,3 +5,17 @@ C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoo
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.exe
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.pdb
 C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Underfoot.exe
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Underfoot.pdb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\obj\x86\Debug\Underfoot.exe
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\obj\x86\Debug\Underfoot.pdb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\blood1.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\blood2.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\ground.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\mupp.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\zorf.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\foot.xnb
+C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\cat.xnb

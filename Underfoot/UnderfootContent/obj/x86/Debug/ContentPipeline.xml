@@ -7,8 +7,71 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2012-04-21T11:53:17.25+02:00</Time>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2012-04-21T11:57:21.6500915+02:00</Time>
+    </Item>
+    <Item>
+      <Source>blood1.png</Source>
+      <Name>blood1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\blood1.xnb</Output>
+      <Time>2012-04-21T12:20:51.3057192+02:00</Time>
+    </Item>
+    <Item>
+      <Source>blood2.png</Source>
+      <Name>blood2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\blood2.xnb</Output>
+      <Time>2012-04-21T12:21:08.0476768+02:00</Time>
+    </Item>
+    <Item>
+      <Source>ground.png</Source>
+      <Name>ground</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\ground.xnb</Output>
+      <Time>2012-04-21T12:31:39.1867759+02:00</Time>
+    </Item>
+    <Item>
+      <Source>mupp.png</Source>
+      <Name>mupp</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\mupp.xnb</Output>
+      <Time>2012-04-21T12:19:47.9540957+02:00</Time>
+    </Item>
+    <Item>
+      <Source>zorf.png</Source>
+      <Name>zorf</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\zorf.xnb</Output>
+      <Time>2012-04-21T12:18:56.3401435+02:00</Time>
+    </Item>
+    <Item>
+      <Source>foot.png</Source>
+      <Name>foot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\foot.xnb</Output>
+      <Time>2012-04-21T13:50:45.2672361+02:00</Time>
+    </Item>
+    <Item>
+      <Source>cat.png</Source>
+      <Name>cat</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\cat.xnb</Output>
+      <Time>2012-04-21T14:27:56.6308628+02:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -16,39 +79,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\UnderfootContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\UnderfootContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Jani\Desktop\LD23\Underfoot\UnderfootContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Jani\Desktop\LD23\Underfoot\UnderfootContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T12:41:18+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2012-04-20T23:31:28.96875+02:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-04-18T18:17:00.6084619+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
