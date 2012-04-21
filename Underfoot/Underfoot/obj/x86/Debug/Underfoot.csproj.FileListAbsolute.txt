@@ -1,0 +1,7 @@
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Underfoot.exe
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Underfoot.pdb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.exe
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\obj\x86\Debug\Underfoot.pdb
+C:\Documents and Settings\N N\Mina dokument\Visual Studio 2010\Projects\Underfoot\Underfoot\Underfoot\bin\x86\Debug\Content\SpriteFont1.xnb
