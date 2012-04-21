@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace Underfoot
 {
     public enum TerrainType
@@ -35,11 +34,13 @@ namespace Underfoot
             set;
         }
 
-        public GameMap(Game game, int width, int height)
-            : base(game)
+        private Game1 game;
+
+        public GameMap(Game1 game1, int width, int height)
+            : base(game1)
         {
-            // TODO: Construct any child components here
             this.WindowSize = new int[] { width, height };
+            game = game1;
         }
 
         /// <summary>
@@ -48,9 +49,19 @@ namespace Underfoot
         /// </summary>
         public override void Initialize()
         {
-            // TODO: Add your initialization code here
-            this.Map = new TerrainType[WindowSize[0], WindowSize[1]];
-            this.Map[WindowSize[0] / 2, WindowSize[1] / 2] = TerrainType.Land;
+            int x, y;
+
+            this.Map = new TerrainType[WindowSize[0] / game.blockSize, WindowSize[1] / game.blockSize];
+
+            for (x = 0; x < 80; x++)
+                for (y = 0; y < 48; y++)
+                {
+                    Random rnd = new Random();
+                    if (rnd.Next(10) > 8)
+                        this.Map[x, y] = TerrainType.Water;
+                    else
+                        this.Map[x, y] = TerrainType.Land;
+                }
 
 
             base.Initialize();

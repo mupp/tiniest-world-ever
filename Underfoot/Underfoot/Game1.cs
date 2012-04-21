@@ -29,13 +29,40 @@ namespace Underfoot
 
         GameMap Map;
 
+        TinyHuman[] tinyHumans;
+
+        private Texture2D zorf;
+        private Texture2D mupp;
+        private Texture2D blood1;
+        private Texture2D blood2;
+        private Texture2D ground;
+
+        public Random rnd;
+
+        public int blockSize
+        {
+            get;
+            set;
+        }
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            rnd = new Random();
+
             Map = new GameMap(this, 300, 200);
-            graphics.IsFullScreen = true;
-            graphics.ApplyChanges();
+
+            tinyHumans = new TinyHuman[100];
+
+            int c;
+            for (c = 0; c < 100; c++)
+                tinyHumans[c] = new TinyHuman(this);
+
+            
+
+            //graphics.IsFullScreen = true;
+            //graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -47,6 +74,8 @@ namespace Underfoot
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            blockSize = 10;
 
             base.Initialize();
         }
@@ -60,7 +89,12 @@ namespace Underfoot
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             myFont = Content.Load<SpriteFont>("SpriteFont1");
-            // TODO: use this.Content to load your game content here
+
+            ground = Content.Load<Texture2D>("ground");
+            zorf = Content.Load<Texture2D>("zorf");
+            mupp = Content.Load<Texture2D>("mupp");
+            blood1 = Content.Load<Texture2D>("blood1");
+            blood2 = Content.Load<Texture2D>("blood2");
         }
 
         /// <summary>
@@ -99,9 +133,24 @@ namespace Underfoot
             GraphicsDevice.Clear(WaterColor);
 
             // TODO: Add your drawing code here
+            int x, y, c;
 
             spriteBatch.Begin();
-            spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(10, 10), Color.White);
+
+            for (x = 0; x < 80; x++)
+                for (y = 0; y < 48; y++ )
+                    spriteBatch.Draw(ground, new Rectangle(x * blockSize, y * blockSize, blockSize, blockSize), Color.White);
+
+            for (c = 0; c < 100; c++ )
+                if (tinyHumans[c].type == 0) 
+                    spriteBatch.Draw(zorf, new Rectangle((int)tinyHumans[c].pos.X * blockSize,
+                    (int)tinyHumans[c].pos.Y * blockSize, blockSize, blockSize), Color.White);
+                else
+                    spriteBatch.Draw(mupp, new Rectangle((int)tinyHumans[c].pos.X * blockSize,
+(int)tinyHumans[c].pos.Y * blockSize, blockSize, blockSize), Color.White);
+
+
+            spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(blockSize, blockSize), Color.White);
             spriteBatch.End();
 
             Map.Update(gameTime);
