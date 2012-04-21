@@ -1,8 +1,0 @@
-Content\SpriteFont1.xnb
-Content\blood1.xnb
-Content\blood2.xnb
-Content\ground.xnb
-Content\mupp.xnb
-Content\zorf.xnb
-Content\foot.xnb
-Content\cat.xnb

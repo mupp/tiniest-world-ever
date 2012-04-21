@@ -73,6 +73,33 @@
       <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\cat.xnb</Output>
       <Time>2012-04-21T14:27:56.6308628+02:00</Time>
     </Item>
+    <Item>
+      <Source>leftF.png</Source>
+      <Name>leftF</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\leftF.xnb</Output>
+      <Time>2012-04-21T16:21:54.5169676+02:00</Time>
+    </Item>
+    <Item>
+      <Source>rightF.png</Source>
+      <Name>rightF</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\rightF.xnb</Output>
+      <Time>2012-04-21T16:21:54.5169676+02:00</Time>
+    </Item>
+    <Item>
+      <Source>shadow.png</Source>
+      <Name>shadow</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Jani\Desktop\LD23\Underfoot\Underfoot\bin\x86\Debug\Content\shadow.xnb</Output>
+      <Time>2012-04-21T16:21:54.5179676+02:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
