@@ -533,6 +533,8 @@ namespace Underfoot
                 if (gameTime.TotalGameTime > gameOverScreenTime + TimeSpan.FromSeconds(5))
                 {
                     showGameOver = false;
+                    if (endgame != 11)
+                        musicLoop.Play();
                 }
             }
 

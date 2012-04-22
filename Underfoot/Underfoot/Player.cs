@@ -68,7 +68,7 @@ namespace Underfoot
             playerBatch = new SpriteBatch(Game.GraphicsDevice);
             x = 100;
             y = 100;
-            speed = 25;
+            speed = 35;
             heading = new Vector2(0, 0);
             target = new Vector2(0, 0);
             timeBetweenSteps = new TimeSpan(0, 0, 3);
