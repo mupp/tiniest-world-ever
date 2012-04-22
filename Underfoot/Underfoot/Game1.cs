@@ -45,6 +45,7 @@ namespace Underfoot
         private Texture2D girl2;
         private Texture2D fatbob;
         private Texture2D soldier;
+        private Texture2D soldier2;
         private Texture2D homer;
 
         private Texture2D mormorshus;
@@ -52,16 +53,31 @@ namespace Underfoot
         private Texture2D flowers1;
         private Texture2D flowers2;
 
+        private Texture2D splash1;
+        private Texture2D splash2;
+        private Texture2D gameOver;
+
+        private Texture2D whitehouse1;
+        private Texture2D whitehouse2;
+        private Texture2D whitehouse3;
+
+        private Texture2D whitehouse1b;
+        private Texture2D whitehouse2b;
+        private Texture2D whitehouse3b;
 
         public SoundEffect soundSplatt1;
         public SoundEffect soundSplatt2;
         public SoundEffect soundSplatt3;
         public SoundEffect soundKrash;
         public SoundEffect soundStep;
+        public SoundEffect soundShot;
 
         public Random rnd;
 
         private Levels levels;
+        private int level;
+
+        public int life;
 
         public int blockSize
         {
@@ -77,6 +93,9 @@ namespace Underfoot
         public int MAXY = 24;
 
         public int humansToKill;
+
+        TimeSpan gameOverScreenTime;
+        bool showGameOver;
 
         public Game1()
         {
@@ -110,7 +129,13 @@ namespace Underfoot
             //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
 
-            levels.UpdateLevel(1, tinyHumans, Houses, Map, out humansToKill);
+            showGameOver = false;
+            gameOverScreenTime = TimeSpan.FromSeconds(5);
+
+            life = 100;
+
+            level = 3;
+            levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
             
         }
 
@@ -146,6 +171,7 @@ namespace Underfoot
             girl1 = Content.Load<Texture2D>("girl1");
             girl2 = Content.Load<Texture2D>("girl2");
             soldier = Content.Load<Texture2D>("soldier");
+            soldier2 = Content.Load<Texture2D>("soldier2");
             homer = Content.Load<Texture2D>("homer");
             fatbob = Content.Load<Texture2D>("fatbob");
 
@@ -159,11 +185,24 @@ namespace Underfoot
             flowers1 = Content.Load<Texture2D>("flowers1");
             flowers2 = Content.Load<Texture2D>("flowers2");
 
+            splash1 = Content.Load<Texture2D>("Splash");
+            splash2 = Content.Load<Texture2D>("Splash2");
+            gameOver = Content.Load<Texture2D>("gameover");
+
+            whitehouse1 = Content.Load<Texture2D>("tinywhitehouse1");
+            whitehouse2 = Content.Load<Texture2D>("tinywhitehouse2");
+            whitehouse3 = Content.Load<Texture2D>("tinywhitehouse3");
+
+            whitehouse1b = Content.Load<Texture2D>("tinywhitehouse1b");
+            whitehouse2b = Content.Load<Texture2D>("tinywhitehouse2b");
+            whitehouse3b = Content.Load<Texture2D>("tinywhitehouse3b");
+
             soundSplatt1 = Content.Load<SoundEffect>("splurt1");
             soundSplatt2 = Content.Load<SoundEffect>("splurt2");
             soundSplatt3 = Content.Load<SoundEffect>("splurt3");
             soundKrash = Content.Load<SoundEffect>("Explosion");
             soundStep = Content.Load<SoundEffect>("Step");
+            soundShot = Content.Load<SoundEffect>("shot");
         }
 
         /// <summary>
@@ -182,6 +221,9 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (showGameOver)
+                return;
+
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
@@ -201,6 +243,24 @@ namespace Underfoot
 
             // TODO: Add your update logic here
 
+            if (humansToKill < 1)
+            {
+                // Go to next level
+                level++;
+
+                levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
+            }
+
+            if (life < 1)
+            {
+                life = 100;
+
+                levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
+
+                showGameOver = true;
+                gameOverScreenTime = gameTime.TotalGameTime;
+            }
+
             base.Update(gameTime);
         }
 
@@ -211,6 +271,25 @@ namespace Underfoot
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(WaterColor);
+
+            //if (gameTime.TotalGameTime < TimeSpan.FromSeconds(2))
+            //{
+            //    spriteBatch.Begin();
+            //    spriteBatch.Draw(splash1, new Rectangle(0,
+            //             0, 800, 480), Color.White);
+            //    spriteBatch.End();
+            //    return;
+            //}
+            //else
+            //    if (gameTime.TotalGameTime < TimeSpan.FromSeconds(8))
+            //    {
+            //        spriteBatch.Begin();
+            //        spriteBatch.Draw(splash2, new Rectangle(0, 0, 800, 480), Color.White);
+            //        spriteBatch.End();
+            //        return;
+            //    }
+
+
 
             // TODO: Add your drawing code here
             int x, y, c;
@@ -235,6 +314,8 @@ namespace Underfoot
                         texture = girl1;
                     else if (tinyHumans[c].type == TinyHumanType.Girl2)
                         texture = girl2;
+                    else if (tinyHumans[c].type == TinyHumanType.Soldier && tinyHumans[c].doingAction)
+                        texture = soldier2;
                     else if (tinyHumans[c].type == TinyHumanType.Soldier)
                         texture = soldier;
                     else if (tinyHumans[c].type == TinyHumanType.FatBob)
@@ -269,7 +350,27 @@ namespace Underfoot
                     else
                         texture = mormorshus;
                 }
-                
+                else if (Houses[c].type == HouseType.Whitehouse1)
+                {
+                    if (Houses[c].destroyed)
+                        texture = whitehouse1b;
+                    else
+                        texture = whitehouse1;
+                }
+                else if (Houses[c].type == HouseType.Whitehouse2)
+                {
+                    if (Houses[c].destroyed)
+                        texture = whitehouse2b;
+                    else
+                        texture = whitehouse2;
+                }
+                else if (Houses[c].type == HouseType.Whitehouse3)
+                {
+                    if (Houses[c].destroyed)
+                        texture = whitehouse3b;
+                    else
+                        texture = whitehouse3;
+                }
                 else
                 {
                     if (Houses[c].destroyed)
@@ -283,6 +384,21 @@ namespace Underfoot
 
 
             spriteBatch.DrawString(myFont, "Humans To Kill : " + humansToKill.ToString(), new Vector2(blockSize, blockSize), Color.White);
+
+            spriteBatch.DrawString(myFont, "Life : " + life.ToString(), new Vector2(700, blockSize), Color.White);
+            
+
+            if (showGameOver)
+            {
+ 
+                spriteBatch.Draw(gameOver, new Rectangle(0, 0, 800, 480), Color.White);
+
+                if (gameTime.TotalGameTime > gameOverScreenTime + TimeSpan.FromSeconds(5))
+                {
+                    showGameOver = false;
+                }
+            }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

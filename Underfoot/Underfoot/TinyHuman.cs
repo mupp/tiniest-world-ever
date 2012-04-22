@@ -45,6 +45,11 @@ namespace Underfoot
         private int uid;
         Game1 game;
 
+        public TimeSpan lastAction; // last time action executed
+        public TimeSpan actionSpan; // span between actions
+        public TimeSpan actionTime; // How long the action takes
+        public bool doingAction;
+
         public TinyHuman(Game1 game1)
             : base(game1)
         {
@@ -59,6 +64,9 @@ namespace Underfoot
             type = (TinyHumanType)game.rnd.Next(7);
             uid = game.rnd.Next(10000);
 
+            lastAction = TimeSpan.FromSeconds(10);
+            actionTime = TimeSpan.FromMilliseconds(100);
+            doingAction = false;
             dead = false;
         }
 
@@ -85,6 +93,15 @@ namespace Underfoot
 
             if (dead || !active)
                 return;
+
+            if (lastAction == null)
+                lastAction = gameTime.TotalGameTime;
+
+            if (doingAction && gameTime.TotalGameTime - lastAction > actionTime)
+            {
+                lastAction = gameTime.TotalGameTime;
+                doingAction = false;
+            }
 
             float dx = pos.X - foot.X;
             float dy = pos.Y - foot.Y;
@@ -136,7 +153,7 @@ namespace Underfoot
             }
             if (pos.Y > game.maxy)
             {
-                pos.Y = game.maxx;
+                pos.Y = game.maxy;
                 dir.Y = speed * -0.5f;
             }
             if (pos.X < 1)
@@ -144,10 +161,22 @@ namespace Underfoot
                 pos.X = 1;
                 dir.X = speed * 0.5f;
             }
-            if (pos.Y < 1)
+            if (pos.Y < 2)
             {
-                pos.Y = 1;
+                pos.Y = 2;
                 dir.Y = speed * 0.5f;
+            }
+
+            if (gameTime.TotalGameTime - lastAction > actionSpan)
+            {
+                lastAction = gameTime.TotalGameTime;
+
+                if (type == TinyHumanType.Soldier && dist < 10)
+                {
+                    game.soundShot.Play();
+                    game.life -= 1;
+                    doingAction = true;
+                }
             }
 
             base.Update(gameTime);

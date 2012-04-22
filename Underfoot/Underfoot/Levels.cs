@@ -30,6 +30,7 @@ namespace Underfoot
                 for (c = 0; c < 20; c++)
                 {
                     tinyHumans[c].active = true;
+                    tinyHumans[c].dead = false;
                     tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
                 }
 
@@ -39,6 +40,7 @@ namespace Underfoot
                 for (c = 0; c < 5; c++)
                 {
                     Houses[c].active = true;
+                    //tinyHumans[c].dead = false;
                     Houses[c].type = HouseType.Mormorshus;
                 }
 
@@ -50,13 +52,17 @@ namespace Underfoot
                 for (c = 0; c < 20; c++)
                 {
                     tinyHumans[c].active = true;
+                    tinyHumans[c].dead = false;
                     tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
                 }
 
-                for (c = 21; c < 40; c++)
+                for (c = 20; c < 40; c++)
                 {
                     tinyHumans[c].active = true;
+                    tinyHumans[c].dead = false;
                     tinyHumans[c].type = TinyHumanType.Soldier;
+
+                    tinyHumans[c].actionSpan = TimeSpan.FromSeconds(5);
                 }
 
                 humansToKill = 40;
@@ -64,11 +70,46 @@ namespace Underfoot
                 for (c = 0; c < 10; c++)
                 {
                     Houses[c].active = true;
-                    Houses[c].type = HouseType.Blommor;
+                    Houses[c].type = HouseType.Mormorshus;
                 }
             }
-            { 
-            
+            else
+            {
+                int c;
+                for (c = 0; c < 20; c++)
+                {
+                    tinyHumans[c].active = true;
+                    tinyHumans[c].dead = false;
+                    tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
+                }
+
+                for (c = 20; c < 40; c++)
+                {
+                    tinyHumans[c].active = true;
+                    tinyHumans[c].dead = false;
+                    tinyHumans[c].type = TinyHumanType.Soldier;
+
+                    tinyHumans[c].actionSpan = TimeSpan.FromSeconds(game.rnd.Next(3)+2);
+
+                }
+
+                humansToKill = 40;
+
+                Houses[0].active = true;
+                Houses[0].type = HouseType.Whitehouse1;
+                Houses[0].pos.X = 20;
+                Houses[0].pos.Y = 5;
+
+                Houses[1].active = true;
+                Houses[1].type = HouseType.Whitehouse2;
+                Houses[1].pos.X = 22;
+                Houses[1].pos.Y = 5;
+
+                Houses[2].active = true;
+                Houses[2].type = HouseType.Whitehouse3;
+                Houses[2].pos.X = 24;
+                Houses[2].pos.Y = 5;
+
             }
         
         }

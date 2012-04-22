@@ -16,7 +16,10 @@ namespace Underfoot
     public enum HouseType
     {
         Mormorshus = 0,
-        Blommor = 1
+        Blommor = 1,
+        Whitehouse1,
+        Whitehouse2,
+        Whitehouse3,
 
     }
 
