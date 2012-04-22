@@ -126,7 +126,6 @@ namespace Underfoot
 
                 if (footInAir[0])   // left foot
                 {
-
                     Vector2 pos = new Vector2((float)(Math.Sin(angle - (Math.PI/8)) * footZAxisSpacing), -(float)(Math.Cos(angle - (Math.PI/8)) * footZAxisSpacing));
                     feet[0].X = x + pos.X;
                     feet[0].Y = y + pos.Y;
@@ -196,20 +195,16 @@ namespace Underfoot
             List<float> killRadii = new List<float>();
             List<float> distances = new List<float>();
 
+            game.soundStep.Play(1F,-1F,0F);
+
             foreach (TinyHuman human in game.tinyHumans)
             {
-                if (human.dead)
+                if (human.dead || !human.active)
                     continue;
 
                 Vector2 localPos = new Vector2(human.pos.X * game.blockSize, human.pos.Y * game.blockSize);
                 float dx = localPos.X - feet[foot].X;
                 float dy = localPos.Y - feet[foot].Y;
-                //Vector2 vector = new Vector2(dx, dy);
-                //float vLength = (float)Math.Sqrt((vector.X * vector.X) + (vector.Y * vector.Y));
-                // dot product A*B = |A|*|B|*cos(a) 
-                //float dotProduct = Microsoft.Xna.Framework.Vector2.Dot(vector, footVector);
-                //float cosa = Math.Abs(dotProduct / (vLength * fvLength));
-                //float kr = (2*killRadius / 3) + (cosa * killRadius / 3);
 
                 float dist = (float)Math.Sqrt((dx * dx) + (dy * dy));
                 if (dist <= killRadius)
@@ -224,6 +219,22 @@ namespace Underfoot
                         game.soundSplatt2.Play();
                     else
                         game.soundSplatt3.Play();
+                }
+            }
+            foreach (House h in game.Houses)
+            {
+                if (h.destroyed || !h.active)
+                    continue;
+
+                Vector2 localPos = new Vector2(h.pos.X * game.blockSize, (h.pos.Y * game.blockSize + (game.blockSize/2)));
+                float dx = localPos.X - feet[foot].X;
+                float dy = localPos.Y - feet[foot].Y;
+
+                float dist = (float)Math.Sqrt((dx * dx) + (dy * dy));
+                if (dist <= killRadius* 1.1)
+                {
+                    h.destroyed = true;
+                    game.soundKrash.Play();
                 }
             }
         }

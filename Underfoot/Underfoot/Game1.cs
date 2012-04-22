@@ -31,7 +31,7 @@ namespace Underfoot
         Player player;
 
         public TinyHuman[] tinyHumans;
-        House[] Houses;
+        public House[] Houses;
 
         private Texture2D zorf;
         private Texture2D mupp;
@@ -57,6 +57,7 @@ namespace Underfoot
         public SoundEffect soundSplatt2;
         public SoundEffect soundSplatt3;
         public SoundEffect soundKrash;
+        public SoundEffect soundStep;
 
         public Random rnd;
 
@@ -162,7 +163,7 @@ namespace Underfoot
             soundSplatt2 = Content.Load<SoundEffect>("splurt2");
             soundSplatt3 = Content.Load<SoundEffect>("splurt3");
             soundKrash = Content.Load<SoundEffect>("Explosion");
-
+            soundStep = Content.Load<SoundEffect>("Step");
         }
 
         /// <summary>

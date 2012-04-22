@@ -42,7 +42,7 @@ namespace Underfoot
         public bool dead;
 
         public bool active;
-
+        private int uid;
         Game1 game;
 
         public TinyHuman(Game1 game1)
@@ -57,6 +57,7 @@ namespace Underfoot
             speed = 0.2f;
             angle = 0.0f;
             type = (TinyHumanType)game.rnd.Next(7);
+            uid = game.rnd.Next(10000);
 
             dead = false;
         }
