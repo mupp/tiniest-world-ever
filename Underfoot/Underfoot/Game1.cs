@@ -73,6 +73,8 @@ namespace Underfoot
         public SoundEffect soundShot;
         public SoundEffect music;
         public SoundEffectInstance musicLoop;
+        public Song introSong;
+        public Song sadSong;
 
         public Random rnd;
 
@@ -139,6 +141,12 @@ namespace Underfoot
             level = 3;
             levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
             
+        }
+
+        protected override void EndRun()
+        {
+            MediaPlayer.Stop();
+            base.EndRun();
         }
 
         /// <summary>
@@ -209,6 +217,12 @@ namespace Underfoot
             musicLoop = music.CreateInstance();
             musicLoop.IsLooped = true;
             musicLoop.Volume = 0.2F;
+
+            introSong = Content.Load<Song>("intromusic");
+            sadSong = Content.Load<Song>("sad");
+
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(introSong);
         }
 
         /// <summary>
@@ -227,7 +241,7 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
+            
             if (showGameOver)
             {
                 musicLoop.Stop();

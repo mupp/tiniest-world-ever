@@ -22,6 +22,7 @@ namespace Underfoot
         public Vector2 Position
         {
             get { return new Vector2(x, y); }
+            set { this.x = value.X; this.y = value.Y; }
         }
 
         Game1 game;
