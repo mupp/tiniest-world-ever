@@ -91,6 +91,7 @@ namespace Underfoot
         public void Update2(GameTime gameTime, Vector2 foot)
         {
             // TODO: Add your update code here
+            if (game.GameFrozen) return;
 
             if (dead || !active)
                 return;

@@ -74,10 +74,13 @@ namespace Underfoot
         public SoundEffect soundShot;
         public SoundEffect music;
         public SoundEffectInstance musicLoop;
-        public Song introSong;
-        public Song sadSong;
+        public SoundEffect introSong;
+        public SoundEffectInstance introLoop;
+        public SoundEffect sadSong;
 
         public Random rnd;
+
+        public bool GameFrozen;
 
         private Levels levels;
         private int level;
@@ -223,11 +226,14 @@ namespace Underfoot
             musicLoop.IsLooped = true;
             musicLoop.Volume = 0.2F;
 
-            introSong = Content.Load<Song>("intromusic");
-            sadSong = Content.Load<Song>("sad");
+            introSong = Content.Load<SoundEffect>("intromusic2");
+            introLoop = introSong.CreateInstance();
+            introLoop.IsLooped = true;
+            introLoop.Play();
 
-            MediaPlayer.IsRepeating = true;
-            MediaPlayer.Play(introSong);
+            sadSong = Content.Load<SoundEffect>("sad2");
+
+            GameFrozen = true ;
         }
 
         /// <summary>
@@ -246,6 +252,15 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (gameTime.TotalGameTime > TimeSpan.FromSeconds(8) && GameFrozen)
+            {
+                if (musicLoop.State != SoundState.Playing && endgame < 4)
+                {
+                    musicLoop.Play();
+                }
+                introLoop.Stop();
+                GameFrozen = false;
+            }
 
             if (endgame == 1)
             {
@@ -265,8 +280,7 @@ namespace Underfoot
                 musicLoop.Stop();
                 return;
             }
-            if (musicLoop.State != SoundState.Playing)
-                musicLoop.Play();
+            
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -335,6 +349,7 @@ namespace Underfoot
                     spriteBatch.End();
                     return;
                 }
+
 
             if (endgame == 2 && tinyHumans[41].pos.Y < 10)
             {
@@ -446,6 +461,9 @@ namespace Underfoot
             {
                 endgame = 4;
                 endgameTime = gameTime.TotalGameTime;
+                GameFrozen = true;
+                musicLoop.Stop();
+                sadSong.Play();
             }
 
             if (endgame >= 4)

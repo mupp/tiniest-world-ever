@@ -98,6 +98,7 @@ namespace Underfoot
         public override void Update(GameTime gameTime)
         {
             // TODO: Add your update code here
+            if (game.GameFrozen) return;
 
             elapsed += gameTime.ElapsedGameTime;
 
