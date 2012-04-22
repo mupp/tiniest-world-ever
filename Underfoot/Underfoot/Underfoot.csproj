@@ -107,7 +107,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="foot.cs" />
     <Compile Include="GameMap.cs" />
     <Compile Include="House.cs" />
     <Compile Include="Levels.cs" />

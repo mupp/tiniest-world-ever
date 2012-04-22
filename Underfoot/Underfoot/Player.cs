@@ -198,6 +198,9 @@ namespace Underfoot
 
             foreach (TinyHuman human in game.tinyHumans)
             {
+                if (human.dead)
+                    continue;
+
                 Vector2 localPos = new Vector2(human.pos.X * game.blockSize, human.pos.Y * game.blockSize);
                 float dx = localPos.X - feet[foot].X;
                 float dy = localPos.Y - feet[foot].Y;
@@ -212,6 +215,14 @@ namespace Underfoot
                 if (dist <= killRadius)
                 {
                     human.dead = true;
+
+                    int r = game.rnd.Next(100);
+                    if (r < 30)
+                        game.soundSplatt1.Play();
+                    else if (r < 60)
+                        game.soundSplatt2.Play();
+                    else
+                        game.soundSplatt3.Play();
                 }
             }
         }

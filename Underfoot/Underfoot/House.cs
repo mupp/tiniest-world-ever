@@ -32,13 +32,17 @@ namespace Underfoot
 
         public bool active;
 
-        public House(Game1 game)
-            : base(game)
+        Game1 game;
+
+        public House(Game1 game1)
+            : base(game1)
         {
             // TODO: Construct any child components here
 
             type = HouseType.Mormorshus;
             destroyed = false;
+
+            game = game1;
 
             pos = new Vector2(game.rnd.Next(game.MAXX), game.rnd.Next(game.MAXY));
         }
@@ -60,11 +64,17 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public void Update2(GameTime gameTime, Vector2 foot)
         {
+            if (destroyed)
+                return;
+
             float dx = pos.X - foot.X;
             float dy = pos.Y - foot.Y;
 
             if (Math.Abs(dx) < 1 && Math.Abs(dy) < 1)
+            {
                 destroyed = true;
+                game.soundKrash.Play();
+            }
 
             base.Update(gameTime);
         }

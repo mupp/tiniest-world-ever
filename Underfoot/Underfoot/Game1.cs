@@ -52,9 +52,14 @@ namespace Underfoot
         private Texture2D flowers1;
         private Texture2D flowers2;
 
+
+        public SoundEffect soundSplatt1;
+        public SoundEffect soundSplatt2;
+        public SoundEffect soundSplatt3;
+        public SoundEffect soundKrash;
+
         public Random rnd;
 
-        private foot Foot;
         private Levels levels;
 
         public int blockSize
@@ -80,7 +85,6 @@ namespace Underfoot
 
             Map = new GameMap(this, 300, 200);
             player = new Player(this);
-            Foot = new foot(this);
             levels = new Levels(this);
 
             tinyHumans = new TinyHuman[MAXHUMAN];
@@ -151,6 +155,12 @@ namespace Underfoot
             mormorshus2 = Content.Load<Texture2D>("mormorshus2");
             flowers1 = Content.Load<Texture2D>("flowers1");
             flowers2 = Content.Load<Texture2D>("flowers2");
+
+            soundSplatt1 = Content.Load<SoundEffect>("splurt1");
+            soundSplatt2 = Content.Load<SoundEffect>("splurt2");
+            soundSplatt3 = Content.Load<SoundEffect>("splurt3");
+            soundKrash = Content.Load<SoundEffect>("Explosion");
+
         }
 
         /// <summary>
@@ -169,42 +179,22 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            bool up, right, left, down;
-
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 this.Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up))
-                up = true;
-            else
-                up = false;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Right))
-                right = true;
-            else
-                right = false;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Down))
-                down = true;
-            else
-                down = false;
-
-            if (Keyboard.GetState().IsKeyDown(Keys.Left))
-                left = true;
-            else
-                left = false;
-
-            Foot.Update2(gameTime, up, down, left, right);
+            Vector2 foot2;
+            foot2.X = player.Position.X / blockSize;
+            foot2.Y = player.Position.Y / blockSize;
 
             int c;
             for (c = 0; c < 100; c++)
-                tinyHumans[c].Update2(gameTime, Foot.pos);
+                tinyHumans[c].Update2(gameTime, foot2);
 
             for (c = 0; c < 5; c++)
-                Houses[c].Update2(gameTime, Foot.pos);
+                Houses[c].Update2(gameTime, foot2);
 
             // TODO: Add your update logic here
 
@@ -289,28 +279,10 @@ namespace Underfoot
             }
 
 
-            spriteBatch.Draw(foot, new Rectangle((int)Foot.pos.X * blockSize,
-(int)Foot.pos.Y * blockSize, blockSize, blockSize), Color.White);
-
-            spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(blockSize, blockSize), Color.White);
+            //spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(blockSize, blockSize), Color.White);
             spriteBatch.End();
 
-            Map.Update(gameTime);
-
-            //DrawGuys(gameTime);
-
-            //DrawFeet(gameTime);
-
             base.Draw(gameTime);
-        }
-
-        private void DrawGuys(GameTime time)
-        {
-            // TODO
-        }
-        private void DrawFeet(GameTime time)
-        {
-            // TODO
         }
     }
 }
