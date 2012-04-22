@@ -89,8 +89,8 @@ namespace Underfoot
             float dy = pos.Y - foot.Y;
             float dist = (float)Math.Sqrt((double)(dx * dx + dy * dy));
 
-            if (Math.Abs(dx) < 1 && Math.Abs(dy) < 1)
-                dead = true;
+            //if (Math.Abs(dx) < 1 && Math.Abs(dy) < 1)
+            //    dead = true;
 
             //angle = (float)Math.Atan((double)dy / (double)dx);
 
@@ -111,23 +111,43 @@ namespace Underfoot
             }
             else
             {
-                if (dist < 10 && dx < 10 && dx >= 0)
-                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (dist < 10 && dy < 10 && dy >= 0)
-                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (dist < 10 && dx > -10 && dx <= 0)
-                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (dist < 10 && dy > -10 && dy <= 0)
-                    pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (dist < 10)
+                {
+                    if (dx < 10 && dx >= 0)
+                        pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (dy < 10 && dy >= 0)
+                        pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (dx > -10 && dx <= 0)
+                        pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (dy > -10 && dy <= 0)
+                        pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                   pos.X += dir.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                   pos.Y += dir.Y * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
             }
             if (pos.X > game.maxx)
+            {
                 pos.X = game.maxx;
+                dir.X = speed * -0.5f;
+            }
             if (pos.Y > game.maxy)
+            {
                 pos.Y = game.maxx;
+                dir.Y = speed * -0.5f;
+            }
             if (pos.X < 1)
+            {
                 pos.X = 1;
+                dir.X = speed * 0.5f;
+            }
             if (pos.Y < 1)
+            {
                 pos.Y = 1;
+                dir.Y = speed * 0.5f;
+            }
 
             base.Update(gameTime);
         }

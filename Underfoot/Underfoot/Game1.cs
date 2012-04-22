@@ -75,13 +75,15 @@ namespace Underfoot
         public int MAXX = 40;
         public int MAXY = 24;
 
+        public int humansToKill;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             rnd = new Random();
             maxx = 39;
-            maxy = 24;
+            maxy = 23;
 
             Map = new GameMap(this, 300, 200);
             player = new Player(this);
@@ -107,7 +109,7 @@ namespace Underfoot
             //graphics.IsFullScreen = true;
             //graphics.ApplyChanges();
 
-            levels.UpdateLevel(1, tinyHumans, Houses, Map);
+            levels.UpdateLevel(1, tinyHumans, Houses, Map, out humansToKill);
             
         }
 
@@ -279,7 +281,7 @@ namespace Underfoot
             }
 
 
-            //spriteBatch.DrawString(myFont, "Time : " + DateTime.Now.ToString(), new Vector2(blockSize, blockSize), Color.White);
+            spriteBatch.DrawString(myFont, "Humans To Kill : " + humansToKill.ToString(), new Vector2(blockSize, blockSize), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

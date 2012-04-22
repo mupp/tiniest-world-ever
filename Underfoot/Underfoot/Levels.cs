@@ -20,8 +20,10 @@ namespace Underfoot
             game = game1;
         }
 
-        public void UpdateLevel(int level, TinyHuman[] tinyHumans, House[] Houses, GameMap Map)
+        public void UpdateLevel(int level, TinyHuman[] tinyHumans, House[] Houses, GameMap Map, out int humansToKill)
         {
+            humansToKill = 20;
+
             if (level == 1)
             {
                 int c;
@@ -39,6 +41,8 @@ namespace Underfoot
                     Houses[c].active = true;
                     Houses[c].type = HouseType.Mormorshus;
                 }
+
+                humansToKill = 20;
             }
             else if (level == 2)
             {
@@ -54,6 +58,8 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].type = TinyHumanType.Soldier;
                 }
+
+                humansToKill = 40;
 
                 for (c = 0; c < 10; c++)
                 {

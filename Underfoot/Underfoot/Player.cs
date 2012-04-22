@@ -215,6 +215,7 @@ namespace Underfoot
                 if (dist <= killRadius)
                 {
                     human.dead = true;
+                    game.humansToKill--;
 
                     int r = game.rnd.Next(100);
                     if (r < 30)
