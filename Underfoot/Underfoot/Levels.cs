@@ -32,6 +32,7 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].dead = false;
                     tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
+                    tinyHumans[c].pos = new Vector2(game.rnd.Next(40), game.rnd.Next(28));
                 }
 
                 tinyHumans[21].active = true;
@@ -54,6 +55,7 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].dead = false;
                     tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
+                    tinyHumans[c].pos = new Vector2(game.rnd.Next(40), game.rnd.Next(28));
                 }
 
                 for (c = 20; c < 40; c++)
@@ -61,6 +63,7 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].dead = false;
                     tinyHumans[c].type = TinyHumanType.Soldier;
+                    tinyHumans[c].pos = new Vector2(game.rnd.Next(20) + 20, game.rnd.Next(28));
 
                     tinyHumans[c].actionSpan = TimeSpan.FromSeconds(5);
                 }
@@ -81,6 +84,7 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].dead = false;
                     tinyHumans[c].type = (TinyHumanType)game.rnd.Next(4);
+                    tinyHumans[c].pos = new Vector2(game.rnd.Next(40), game.rnd.Next(28));
                 }
 
                 for (c = 20; c < 40; c++)
@@ -88,6 +92,7 @@ namespace Underfoot
                     tinyHumans[c].active = true;
                     tinyHumans[c].dead = false;
                     tinyHumans[c].type = TinyHumanType.Soldier;
+                    tinyHumans[c].pos = new Vector2(game.rnd.Next(20)+20, game.rnd.Next(28));
 
                     tinyHumans[c].actionSpan = TimeSpan.FromSeconds(game.rnd.Next(3)+2);
 
@@ -101,16 +106,19 @@ namespace Underfoot
                 }
 
                 Houses[0].active = true;
+                Houses[0].destroyed = false;
                 Houses[0].type = HouseType.Whitehouse1;
                 Houses[0].pos.X = 20;
                 Houses[0].pos.Y = 5;
 
                 Houses[1].active = true;
+                Houses[1].destroyed = false;
                 Houses[1].type = HouseType.Whitehouse2;
                 Houses[1].pos.X = 22;
                 Houses[1].pos.Y = 5;
 
                 Houses[2].active = true;
+                Houses[2].destroyed = false;
                 Houses[2].type = HouseType.Whitehouse3;
                 Houses[2].pos.X = 24;
                 Houses[2].pos.Y = 5;

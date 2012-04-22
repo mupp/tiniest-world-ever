@@ -44,7 +44,7 @@ namespace Underfoot
         private Rectangle footSizeRect;
         private float angle;
 
-        Vector2[] feet;
+        public Vector2[] feet;
         Vector2[] footDirections;
         float[] footAngles;
         bool[] footInAir;
@@ -68,7 +68,7 @@ namespace Underfoot
             playerBatch = new SpriteBatch(Game.GraphicsDevice);
             x = 100;
             y = 100;
-            speed = 35;
+            speed = 25;
             heading = new Vector2(0, 0);
             target = new Vector2(0, 0);
             timeBetweenSteps = new TimeSpan(0, 0, 3);
@@ -201,6 +201,8 @@ namespace Underfoot
 
             foreach (TinyHuman human in game.tinyHumans)
             {
+                if (game.endgame > 1)
+                    break; // Don't kill anyone during endgame
                 if (human.dead || !human.active)
                     continue;
 

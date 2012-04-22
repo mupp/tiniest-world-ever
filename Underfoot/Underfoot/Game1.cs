@@ -146,7 +146,7 @@ namespace Underfoot
             life = 100;
             endgame = 0;
 
-            level = 3;
+            level = 1;
             levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
             
         }
@@ -218,7 +218,7 @@ namespace Underfoot
             soundSplatt1 = Content.Load<SoundEffect>("splurt1");
             soundSplatt2 = Content.Load<SoundEffect>("splurt2");
             soundSplatt3 = Content.Load<SoundEffect>("splurt3");
-            soundKrash = Content.Load<SoundEffect>("Explosion");
+            soundKrash = Content.Load<SoundEffect>("Krash");
             soundStep = Content.Load<SoundEffect>("Step");
             soundShot = Content.Load<SoundEffect>("shot");
             music = Content.Load<SoundEffect>("music");
@@ -307,6 +307,11 @@ namespace Underfoot
                 level++;
 
                 levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
+                player.Position = new Vector2(100, 100);
+                player.feet[0].X = 100;
+                player.feet[0].Y = 100;
+                player.feet[1].X = 100;
+                player.feet[1].Y = 100;
             }
 
             if (life < 1)
@@ -314,6 +319,12 @@ namespace Underfoot
                 life = 100;
 
                 levels.UpdateLevel(level, tinyHumans, Houses, Map, out humansToKill);
+
+                player.Position = new Vector2(100, 100);
+                player.feet[0].X = 100;
+                player.feet[0].Y = 100;
+                player.feet[1].X = 100;
+                player.feet[1].Y = 100;
 
                 showGameOver = true;
                 gameOverScreenTime = gameTime.TotalGameTime;
@@ -476,7 +487,7 @@ namespace Underfoot
 
             if (endgame >= 5 && gameTime.TotalGameTime > endgameTime + TimeSpan.FromSeconds(3))
             {
-                spriteBatch.DrawString(myFont, "GIANT: Oh sorry I didn't mean to", new Vector2(tinyHumans[41].pos.X * blockSize + blockSize * 2, tinyHumans[41].pos.Y * blockSize + blockSize * 2), Color.LightBlue);
+                spriteBatch.DrawString(myFont, "GIANT: Oh sorry I didn't mean to. Sorry.", new Vector2(tinyHumans[41].pos.X * blockSize + blockSize * 2, tinyHumans[41].pos.Y * blockSize + blockSize * 2), Color.LightBlue);
 
                 endgame = 6;
             }
@@ -501,6 +512,12 @@ namespace Underfoot
                 spriteBatch.DrawString(myFont, "TINY PRESIDENT: I will now use my magic", new Vector2(tinyHumans[41].pos.X * blockSize + blockSize * 2, tinyHumans[41].pos.Y * blockSize + blockSize * 6), Color.Yellow);
                 spriteBatch.DrawString(myFont, "powers to bring everyone you killed back", new Vector2(tinyHumans[41].pos.X * blockSize + blockSize * 2, tinyHumans[41].pos.Y * blockSize + blockSize * 7), Color.Yellow);
                 spriteBatch.DrawString(myFont, "to life again!", new Vector2(tinyHumans[41].pos.X * blockSize + blockSize * 2, tinyHumans[41].pos.Y * blockSize + blockSize * 8), Color.Yellow);
+
+                for (c = 0; c < MAXHUMAN; c++)
+                {
+                    tinyHumans[c].dead = false;
+                    tinyHumans[c].active = true;
+                }
 
                 endgame = 9;
             }
