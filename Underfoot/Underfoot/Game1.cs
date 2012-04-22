@@ -71,6 +71,8 @@ namespace Underfoot
         public SoundEffect soundKrash;
         public SoundEffect soundStep;
         public SoundEffect soundShot;
+        public SoundEffect music;
+        public SoundEffectInstance musicLoop;
 
         public Random rnd;
 
@@ -203,6 +205,10 @@ namespace Underfoot
             soundKrash = Content.Load<SoundEffect>("Explosion");
             soundStep = Content.Load<SoundEffect>("Step");
             soundShot = Content.Load<SoundEffect>("shot");
+            music = Content.Load<SoundEffect>("music");
+            musicLoop = music.CreateInstance();
+            musicLoop.IsLooped = true;
+            musicLoop.Volume = 0.2F;
         }
 
         /// <summary>
@@ -221,8 +227,14 @@ namespace Underfoot
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+
             if (showGameOver)
+            {
+                musicLoop.Stop();
                 return;
+            }
+            if (musicLoop.State != SoundState.Playing)
+                musicLoop.Play();
 
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -327,9 +339,11 @@ namespace Underfoot
                     else
                         texture = mupp;
 
-                    spriteBatch.Draw(texture, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
-                    (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
-
+                    if (!tinyHumans[c].dead)
+                    {
+                        spriteBatch.Draw(texture, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
+                        (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
+                    }
                     if (tinyHumans[c].dead)
                         spriteBatch.Draw(blood1, new Rectangle((int)(tinyHumans[c].pos.X * blockSize),
 (int)(tinyHumans[c].pos.Y * blockSize), blockSize, blockSize), Color.White);
