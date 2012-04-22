@@ -21,7 +21,8 @@ namespace Underfoot
         Soldier = 4,
         Cat     = 5,
         Homer   = 6,
-        FatBob  = 7
+        FatBob  = 7,
+        President = 8
     }
     
     

@@ -94,6 +94,11 @@ namespace Underfoot
                 }
 
                 humansToKill = 40;
+                
+                for (c = 0; c < 10; c++)
+                {
+                    Houses[c].active = false;
+                }
 
                 Houses[0].active = true;
                 Houses[0].type = HouseType.Whitehouse1;
